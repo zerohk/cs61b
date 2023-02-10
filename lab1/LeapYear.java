@@ -21,7 +21,7 @@ public class LeapYear {
     /**
      * To analyze a year is a leap year or not
      * 
-     * @source 闰年是不能被4,400和100整除的年份
+     * @source A leap year is either:divisible by 400 or divisible by 4 and not by 100.
      * @param year to be analyzed
      */
     public static boolean isLeapYear(int year) {
