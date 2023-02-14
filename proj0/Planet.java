@@ -25,7 +25,7 @@ public class Planet {
     }
 
     // gravitational constant G
-    static final double G = 6.67e-11;
+    private static final double G = 6.67e-11;
 
     /**
      * 1. This class not need main method;
@@ -44,7 +44,7 @@ public class Planet {
      * 
      * @param p another Planet
      */
-    double calcDistance(Planet p) {
+    public double calcDistance(Planet p) {
         double dx = this.xxPos - p.xxPos;
         double dy = this.yyPos - p.yyPos;
         double sdistance = dx * dx + dy * dy;
@@ -57,7 +57,7 @@ public class Planet {
      * 
      * @param p another Planet
      */
-    double calcForceExertedBy(Planet p) {
+    public double calcForceExertedBy(Planet p) {
         /**
          * F = (G*m1*m2)/r^2,G=6.67*10e-11
          */
@@ -74,7 +74,7 @@ public class Planet {
      * 
      * @param p another planet
      */
-    double calcForceExertedByX(Planet p) {
+    public double calcForceExertedByX(Planet p) {
         double dx = p.xxPos - this.xxPos;
         double dy = p.yyPos - this.yyPos;
         double r = Math.sqrt(dx * dx + dy * dy);
@@ -84,7 +84,7 @@ public class Planet {
         return F_x;
     }
 
-    double calcForceExertedByY(Planet p) {
+    public double calcForceExertedByY(Planet p) {
         double dx = p.xxPos - this.xxPos;
         double dy = p.yyPos - this.yyPos;
         double r = Math.sqrt(dx * dx + dy * dy);
@@ -100,7 +100,7 @@ public class Planet {
      * @return the net X force exerted by all planets in that array upon the current
      *         Planet.
      */
-    double calcNetForceExertedByX(Planet[] ps) {
+    public double calcNetForceExertedByX(Planet[] ps) {
         double netForce = 0;
         for (int i = 0; i < ps.length; i++) {
             if (this.equals(ps[i]))
@@ -116,7 +116,7 @@ public class Planet {
      * @return the net X force exerted by all planets in that array upon the current
      *         Planet.
      */
-    double calcNetForceExertedByY(Planet[] ps) {
+    public double calcNetForceExertedByY(Planet[] ps) {
         double netForce = 0;
         for (int i = 0; i < ps.length; i++) {
             if (this.equals(ps[i]))
@@ -130,7 +130,7 @@ public class Planet {
      * a_x = F_x / m
      */
 
-    void update(double dt, double fx, double fy) {
+    public void update(double dt, double fx, double fy) {
         // calculate the acceleration in x and y direction.
         double ax = fx / this.mass;
         double ay = fy / this.mass;
@@ -142,7 +142,7 @@ public class Planet {
         this.yyPos += this.yyVel * dt;
     }
 
-    void draw() {
+    public void draw() {
         StdDraw.picture(this.xxPos, this.yyPos, "images/" + this.imgFileName);
     }
 }

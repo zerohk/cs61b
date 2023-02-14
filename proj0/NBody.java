@@ -4,7 +4,7 @@ public class NBody {
      * @param path file path
      * @return radius
      */
-    static double readRadius(String path) {
+    public static double readRadius(String path) {
         In in = new In(path);
         in.readInt();
         double radius = in.readDouble();
@@ -18,7 +18,7 @@ public class NBody {
      * @param path
      * @return
      */
-    static Planet[] readPlanets(String path) {
+    public static Planet[] readPlanets(String path) {
         /**
          * standard iput stream,get file content
          */
