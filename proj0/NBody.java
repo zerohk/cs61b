@@ -20,7 +20,7 @@ public class NBody {
      */
     public static Planet[] readPlanets(String path) {
         /**
-         * standard iput stream,get file content
+         * standard input stream,get file content
          */
         In in = new In(path);
         /**
@@ -28,7 +28,7 @@ public class NBody {
          */
         Planet[] planets = new Planet[in.readInt()];
         double radius = in.readDouble();
-        System.out.println(planets);
+
         for (int i = 0; i < planets.length; i++) {
             double xxPos = in.readDouble();
             double yyPos = in.readDouble();
@@ -58,7 +58,7 @@ public class NBody {
         // }
 
         StdDraw.enableDoubleBuffering();
-        for (double time = 0; time <= T; time += dt) {
+        for (double time = 0.0; time <= T; time += dt) {
             double[] xForces = new double[planets.length];
             double[] yForces = new double[planets.length];
             for (int i = 0; i < planets.length; i++) {

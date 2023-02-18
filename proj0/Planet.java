@@ -76,18 +76,20 @@ public class Planet {
      */
     public double calcForceExertedByX(Planet p) {
         double dx = p.xxPos - this.xxPos;
-        double dy = p.yyPos - this.yyPos;
-        double r = Math.sqrt(dx * dx + dy * dy);
-        // invoke calcForceExertedBy() to get the whole exeted force
+        // double dy = p.yyPos - this.yyPos;
+        // double r = Math.sqrt(dx * dx + dy * dy);
+        double r = calcDistance(p);
+        // invoke calcForceExertedBy() to get the whole exerted force
         double F = calcForceExertedBy(p);
         double F_x = F * dx / r;
         return F_x;
     }
 
     public double calcForceExertedByY(Planet p) {
-        double dx = p.xxPos - this.xxPos;
+        // double dx = p.xxPos - this.xxPos;
         double dy = p.yyPos - this.yyPos;
-        double r = Math.sqrt(dx * dx + dy * dy);
+        // double r = Math.sqrt(dx * dx + dy * dy);
+        double r = calcDistance(p);
         // invoke calcForceExertedBy() to get the whole exeted force
         double F = calcForceExertedBy(p);
         double F_y = F * dy / r;
@@ -101,7 +103,7 @@ public class Planet {
      *         Planet.
      */
     public double calcNetForceExertedByX(Planet[] ps) {
-        double netForce = 0;
+        double netForce = 0.0;
         for (int i = 0; i < ps.length; i++) {
             if (this.equals(ps[i]))
                 continue;
@@ -117,7 +119,7 @@ public class Planet {
      *         Planet.
      */
     public double calcNetForceExertedByY(Planet[] ps) {
-        double netForce = 0;
+        double netForce = 0.0;
         for (int i = 0; i < ps.length; i++) {
             if (this.equals(ps[i]))
                 continue;
